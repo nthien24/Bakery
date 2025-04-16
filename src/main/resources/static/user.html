@@ -1,0 +1,222 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>BAKERY</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="checkout/checkout.css">
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+    <!-- header-start -->
+    <header id="header">
+    </header>
+    <!-- header-end -->
+
+    <!-- breadcam_area_start -->
+    <div class="breadcam_area breadcam_bg_1 zigzag_bg_2">
+        <div class="breadcam_inner">
+            <div class="breadcam_text">
+                <h4>Quản lý thông tin cá nhân</h4>
+            </div>
+        </div>
+    </div>
+    <!-- breadcam_area_end -->
+
+    <!-- ================ contact section start ================= -->
+    <section id="container" class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="media contact-info">
+                    <div class="media-body" style="display: inline-flex;">
+                        <div class="form-group mt-3" style="margin-right: 10px;">
+                            <button type="submit" v-on:click="onChangeTabs(1)"
+                                class="button button-contactForm boxed-btn"
+                                v-bind:class="{ 'boxed-btn-active': selectedTab == 1 }">
+                                Thông tin của tôi
+                            </button>
+                        </div>
+                        <div class="form-group mt-3">
+                            <button type="submit" v-on:click="onChangeTabs(0)"
+                                class="button button-contactForm boxed-btn"
+                                v-bind:class="{ 'boxed-btn-active': selectedTab == 0 }">
+                                Đơn hàng của tôi
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" v-show="selectedTab == 0">
+                <div class="card-view col-12">
+                    <div class="container-card-view">
+                        <table class="table table-data2">
+                            <thead>
+                                <tr>
+                                    <th>Mã đơn hàng</th>
+                                    <th>Ngày mua</th>
+                                    <th>Tổng tiền</th>
+                                    <th>Trạng thái đơn hàng</th>
+                                    <th>Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="tr-shadow" v-for="(order, index) in orders" :key="index">
+                                    <td>{{ order.id }}</td>
+                                    <td>
+                                        <span class="block-email">{{ order.dateOrder }}</span>
+                                    </td>
+                                    <td>
+                                        {{ doFormatMoney(order.totalAmount) }}
+                                    </td>
+                                    <td>
+                                        {{ order.status }}
+                                    </td>
+                                    <td>
+                                        <button @click="removeOrder(order.id)">Hủy đơn hàng</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row" v-show="selectedTab == 1">
+                <div class="card-view col-12" style="padding: 25px;">
+                    <div class="container-card-view">
+                        <h4>Họ và tên</h4>
+                        <input v-model="user.name" type="text" name="last_name" placeholder='Họ tên'
+                            class="single-input">
+                        <div class="error" v-if="!$v.user.name.required">Bắt buộc nhập</div>
+
+                        <h4 class="form-group mt-3">Địa chỉ mail</h4>
+                        <input v-model="user.email" type="text" name="last_name" placeholder='Địa chỉ email'
+                            class="single-input">
+                        <div class="error" v-if="!$v.user.email.required">Bắt buộc nhập</div>
+                        <div class="error" v-if="!$v.user.email.email">Sai định dạng</div>
+
+                        <h4 class="form-group mt-3">Địa chỉ</h4>
+                        <input v-model="user.address" type="text" name="last_name" placeholder='Địa chỉ'
+                            class="single-input">
+                        <div class="error" v-if="!$v.user.address.required">Bắt buộc nhập</div>
+
+                        <h4 class="form-group mt-3">Số điện thoại</h4>
+                        <input v-model="user.phone" type="text" min=0 name="last_name" placeholder='Số điện thoại'
+                            class="single-input">
+                        <div class="error" v-if="!$v.user.phone.required">Bắt buộc nhập</div>
+                        <div class="error" v-if="!$v.user.phone.isPhoneNumber">Sai định dạng</div>
+
+                        <h4 class="form-group mt-3">Ngày sinh</h4>
+                        <input v-model="user.birthDay" type="date" name="last_name" placeholder='Ngày sinh'
+                            class="single-input">
+                        <div class="error" v-if="!$v.user.birthDay.required">Bắt buộc nhập</div>
+                        <div class="error" v-if="!$v.user.birthDay.mindate">Ngày không hợp lệ</div>
+                        <div>
+                            <h4 style="display: inline-flex;" class="form-group mt-3">Thay đổi mật khẩu: </h4>
+                            <input v-model="isChangePass" type="checkbox" name="last_name">
+                        </div>
+                        <div v-if="isChangePass">
+                            <h4 class="form-group mt-3">Mật khẩu</h4>
+                            <input v-model="user.password" type="password" name="last_name" placeholder='Mật khẩu'
+                                class="single-input">
+                            <div class="error" v-if="!$v.user.password.required">Bắt buộc nhập</div>
+                            <div class="error" v-if="!$v.user.password.minLength">Độ dài lớn hơn 6</div>
+
+                            <h4 class="form-group mt-3">Nhập lại mật khẩu</h4>
+                            <input v-model="user.passwordAgain" type="password" name="last_name"
+                                placeholder='Xác nhận mật khẩu' class="single-input">
+                            <!-- <div class="error" v-if="!$v.user.passwordAgain.required">Bắt buộc nhập</div> -->
+                            <div class="error" v-if="!$v.user.passwordAgain.sameAsPassword">Mật khẩu xác nhận không khớp
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group mt-3">
+                    <button type="submit" v-on:click="onUpdateProfile" class="button button-contactForm boxed-btn">
+                        Thay đổi thông tin
+                    </button>
+                    <button type="submit" v-on:click="logout" class="button button-contactForm boxed-btn">
+                    	Đăng xuất
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+    <!-- ================ contact section end ================= -->
+
+    <!-- footer-start -->
+    <footer id="footer" class="footer_area footer-bg zigzag_bg_1">
+
+    </footer>
+    <!-- footer-end -->
+
+    <!-- JS here -->
+    <script src="js/validators.min.js"></script>
+    <script src="js/vuelidate.min.js"></script>
+    <script src="js/sweetalert2@9.js"></script>
+    <script src="js/sweetalertto2@9.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/lodash.min.js"></script>
+    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/ajax-form.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/scrollIt.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/nice-select.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/plugins.js"></script>
+
+    <!--contact js-->
+    <script src="js/contact.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/mail-script.js"></script>
+    <script type="text/javascript" src="js/sweetalert2@9.js"></script>
+    <script src="js/jquery.blockUI.js"></script>
+    <script src="constant.js"></script>
+    <script src="js/main.js"></script>
+    <script src="user/user.js"></script>
+
+</body>
+
+</html>

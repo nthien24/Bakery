@@ -1,0 +1,16 @@
+.help-content {
+    background-color: white !important;
+}
+.help-tabs {
+    margin-bottom: 10px !important;
+}
+.tabs li.is-active a {
+    border-bottom-color: #000000;
+    color: #7763A9;
+    border-bottom: 3px solid;
+    font-weight: bold;
+}
+code, pre {
+    color: #1b1e21 !important;
+    background-color: white !important;
+}

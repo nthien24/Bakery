@@ -1,0 +1,235 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Phiếu xuất hàng</title>
+
+    <style>
+        .invoice-box {
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+            border: 1px solid #eee;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+            font-size: 16px;
+            line-height: 24px;
+            font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+            color: #555;
+        }
+
+        .invoice-box table {
+            width: 100%;
+            line-height: inherit;
+            text-align: left;
+        }
+
+        .invoice-box table td {
+            padding: 5px;
+            vertical-align: top;
+        }
+
+        .invoice-box table tr td:nth-child(2) {
+            text-align: right;
+        }
+
+        .invoice-box table tr.top table td {
+            padding-bottom: 20px;
+        }
+
+        .invoice-box table tr.top table td.title {
+            font-size: 45px;
+            line-height: 45px;
+            color: #333;
+        }
+
+        .invoice-box table tr.information table td {
+            padding-bottom: 40px;
+        }
+
+        .invoice-box table tr.heading td {
+            background: #eee;
+            border-bottom: 1px solid #ddd;
+            font-weight: bold;
+        }
+
+        .invoice-box table tr.details td {
+            padding-bottom: 20px;
+        }
+
+        .invoice-box table tr.item td {
+            border-bottom: 1px solid #eee;
+        }
+
+        .invoice-box table tr.item.last td {
+            border-bottom: none;
+        }
+
+        .invoice-box table tr.total td:nth-child(2) {
+            border-top: 2px solid #eee;
+            font-weight: bold;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .invoice-box table tr.top table td {
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+
+            .invoice-box table tr.information table td {
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+        }
+
+        /** RTL **/
+        .rtl {
+            direction: rtl;
+            font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        }
+
+        .rtl table {
+            text-align: right;
+        }
+
+        .rtl table tr td:nth-child(2) {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="invoice-box" id="container">
+        <table cellpadding="0" cellspacing="0">
+            <tr class="top">
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td class="title">
+                                <h4>Phiếu xuất hàng</h4>
+                            </td>
+
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr class="information">
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td>
+                                Khách hàng: {{ profile.name1 }}<br>
+                                Địa chỉ: {{ profile.name2 }}<br>
+                                Số điện thoại: {{ profile.name3 }}<br>
+                                Phí vận chuyển: {{ profile.name4 }}<br>
+                                Ngày mua hàng: {{ new Date(profile.name5).toLocaleDateString() }}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+
+            <tr class="heading">
+                <td>
+                    Mã sản phẩm
+                </td>
+                <td style="text-align: left;">
+                    Tên sản phẩm
+                </td>
+                <td>
+                    Số lượng
+                </td>
+                <td>
+                    Đơn giá
+                </td>
+                <td>
+                    Thành tiền
+                </td>
+            </tr>
+
+            <tr class="item" v-for="(product, index) in products" :key="index">
+                <td>
+                    {{ product.id}}
+                </td>
+                <td style="text-align: left;">
+                    {{ product.nameProduct}}
+                </td>
+                <td>
+                    {{ product.quantity}}
+                </td>
+                <td>
+                    {{ product.price}}
+                </td>
+                <td>
+                    {{ product.quantity * product.price }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" style="text-align: center;">
+                    Tổng tiền
+                </td>
+                <td style="text-align: right;">
+                    {{ totalPrice }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5" style="text-align: right;">
+                    Ngày in phiếu: {{ new Date().toLocaleDateString() }}
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">
+                    <h5>Chữ kí bên giao</h5>
+                </td>
+                <td style="text-align: right;">
+                    <h5>Chữ kí bên nhận</h5>
+                </td>
+
+            </tr>
+
+        </table>
+        <div>
+        </div>
+    </div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#container",
+        data: {
+            products: [],
+            profile: {}
+        },
+        methods: {
+            initScreen: function () {
+                var data = JSON.parse(new URL(location.href).searchParams.get('data'));
+                if (!data) {
+                    return;
+                }
+                this.products = data.products;
+                this.profile = data.profile;
+                javascript: window.print();
+            }
+        },
+        mounted() {
+            this.initScreen();
+        },
+        computed: {
+            totalPrice: function () {
+                return this.products.reduce((total, product) => {
+                    return total + product.price * product.quantity
+                }, 0)
+            }
+        }
+
+    });
+
+
+
+</script>
+
+</html>

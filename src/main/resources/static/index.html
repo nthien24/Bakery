@@ -1,0 +1,392 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>BAKERY</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+    <!-- header-start -->
+    <header id="header">
+       
+    </header>
+    <!-- header-end -->
+
+    <!-- slider_area-start -->
+    <div class="slider_area zigzag_bg_2">
+        <div class="slider_sctive owl-carousel">
+            <div class="single_slider slider_img_1">
+                <div class="single_slider-iner">
+                    <div class="slider_contant text-center">
+                        <h3>April's Cake</h3>
+
+                    </div>
+                </div>
+            </div>
+            <div class="single_slider slider_img_1">
+                <div class="single_slider-iner">
+                    <div class="slider_contant text-center">
+                        <h3>April's Cake</h3>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slider_area-end -->
+    <!-- <div class="order_area" id="container">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title mb-70">
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-4 col-md-6"  v-for="(product, index) in products" :key="product.id">
+                    <div class="single_order" v-if="product.inStock > 0">
+                        <div class="order_thumb">
+                            <img v-bind:src="product.images" alt="">
+                            <div class="order_prise">
+                                <span>{{ product.price | formatMoney }}</span>
+                            </div>
+                        </div>
+                        <div class="order_info">
+                            <h3><a href="#">{{product.nameProduct}}</a></h3>
+                            <p>{{product.description}}</p>
+                            <div v-if="product.isOrder === 1">
+                                <a href="#" class="boxed_btn">Đã có trong giỏ hàng</a>
+                            </div>
+                            <div v-else>
+                                <a href="javascript:void(0);" class="boxed_btn" v-on:click="onAddToCard($event,product)">Đặt hàng ngay!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- service_area-start -->
+    <div class="service_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title mb-60">
+                        <h3>Các dịch vụ</h3>
+                        <p>Chúng tôi hân hạnh cung cấp cách dịch vụ đi kèm sử dụng bánh của chúng tôi.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-4 col-md-6">
+                    <div class="single_service">
+                        <div class="service_icon">
+                            <i class="flaticon-gift"></i>
+                        </div>
+                        <h4>Tiệc sinh nhật</h4>
+                        <p>Với chất lượng tuyệt hảo và mẫu mã đa dạng, chúng tôi hân hạnh phục vụ bánh cho các buổi tiệc sinh nhật.</p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <div class="single_service">
+                        <div class="service_icon">
+                            <i class="flaticon-cake"></i>
+                        </div>
+                        <h4>Tiệc cưới</h4>
+                        <p>Với chất lượng tuyệt hảo và mẫu mã đa dạng, chúng tôi hân hạnh phục vụ bánh cho các buổi tiệc cưới.</p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <div class="single_service">
+                        <div class="service_icon">
+                            <i class="flaticon-dance"></i>
+                        </div>
+                        <h4>Lễ hội</h4>
+                        <p>Với chất lượng tuyệt hảo và mẫu mã đa dạng, chúng tôi hân hạnh phục vụ bánh cho các lễ hội.</p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <div class="single_service">
+                        <div class="service_icon">
+                            <i class="flaticon-calendar"></i>
+                        </div>
+                        <h4>Sự kiện</h4>
+                        <p>Với chất lượng tuyệt hảo và mẫu mã đa dạng, chúng tôi hân hạnh phục vụ bánh cho các sự kiện.</p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <div class="single_service">
+                        <div class="service_icon">
+                            <i class="flaticon-businessman"></i>
+                        </div>
+                        <h4>Hội nghị</h4>
+                        <p>Với chất lượng tuyệt hảo và mẫu mã đa dạng, chúng tôi hân hạnh phục vụ bánh cho các buổi hội nghị.</p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <div class="single_service">
+                        <div class="service_icon">
+                            <i class="flaticon-running-man"></i>
+                        </div>
+                        <h4>Đặt hàng theo yêu cầu</h4>
+                        <p>Ngoài ra, chúng tôi còn cung cấp dịch vụ tìm kiếm sản phẩm bánh theo yêu cầu.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- service_area-end -->
+
+    <!-- video_area_start -->
+    <!-- <div class="video_area video_bg zigzag_bg_1 zigzag_bg_2 ">
+        <div class="video_area_inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="video_text">
+                            <div class="info">
+                                <div class="info_inner">
+                                        <h4>Watch Video</h4>
+                                        <p>You will love our execution</p>
+                                </div>
+                                <div class="icon_video">
+                                        <a class="popup-video" href="https://www.youtube.com/watch?v=HWnXId_Zg4k"><i class="ti-control-play"></i></a>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- video_area_end -->
+
+    <!-- order_area_start -->
+
+    <!-- order_area_end -->
+
+    <!-- testmonial_area_start -->
+    <div class="testmonial_area banner-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title white mb-60">
+                        <h3>Đánh giá từ khách hàng</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="testmonial_active owl-carousel">
+                        <div class="single_testmonial d-flex">
+                            <div class="testmonial_thumb">
+                                <img src="img/testmonial/1.png" alt="">
+                            </div>
+                            <div class="testmonial_author">
+                                <h3>Quang Tài</h3>
+                                <span>Nhân viên văn phòng</span>
+                                <p>Không gian sang trọng nhẹ nhàng yên tĩnh và cách bài trí đẹp mắt. Menu đa dạng thức uống và các loại bánh thơm ngon. Nhân viên nhiệt tình thân thiện chu đáo.</p>
+                            </div>
+                        </div>
+                        <div class="single_testmonial d-flex">
+                            <div class="testmonial_thumb">
+                                <img src="img/testmonial/2.png" alt="">
+                            </div>
+                            <div class="testmonial_author">
+                                <h3>Minh Quân</h3>
+                                <span>Nhân viên hành chính</span>
+                                <p>Bánh chất lượng và rất ngon. Nhân viên thân thiện thoải mái.</p>
+                            </div>
+                        </div>
+                        <div class="single_testmonial d-flex">
+                            <div class="testmonial_thumb">
+                                <img src="img/testmonial/a2.png" alt="">
+                            </div>
+                            <div class="testmonial_author">
+                                <h3>Diễm Trang</h3>
+                                <span>Chuyên viên kỹ thuật</span>
+                                <p>Bánh ngon, nước ổn, nhân viên lịch sự, trang trí đẹp. Giá hơi cao nhưng chất lượng xuất sắc, có góc chụp ảnh đẹp.</p>
+                            </div>
+                        </div>
+                        <div class="single_testmonial d-flex">
+                            <div class="testmonial_thumb">
+                                <img src="img/testmonial/2.png" alt="">
+                            </div>
+                            <div class="testmonial_author">
+                                <h3>Quang Tài</h3>
+                                <span>Nhân viên văn phòng</span>
+                                <p>Không gian sang trọng nhẹ nhàng yên tĩnh và cách bài trí đẹp mắt. Menu đa dạng thức uống và các loại bánh thơm ngon. Nhân viên nhiệt tình thân thiện chu đáo.</p>
+                            </div>
+                        </div>
+                        <div class="single_testmonial d-flex">
+                            <div class="testmonial_thumb">
+                                <img src="img/testmonial/1.png" alt="">
+                            </div>
+                            <div class="testmonial_author">
+                                 <h3>Minh Quân</h3>
+                                <span>Nhân viên hành chính</span>
+                                <p>Bánh chất lượng và rất ngon. Nhân viên thân thiện thoải mái.</p>
+                            </div>
+                        </div>
+                        <div class="single_testmonial d-flex">
+                            <div class="testmonial_thumb">
+                                <img src="img/testmonial/a2.png" alt="">
+                            </div>
+                            <div class="testmonial_author">
+                                <h3>Diễm Trang</h3>
+                                <span>Chuyên viên kỹ thuật</span>
+                                <p>Bánh ngon, nước ổn, nhân viên lịch sự, trang trí đẹp. Giá hơi cao nhưng chất lượng xuất sắc, có góc chụp ảnh đẹp.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- testmonial_area_end -->
+
+    <!-- brand_area-start -->
+    <div class="brand_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title mb-70">
+                        <h3>Những khách hàng lựa chọn chúng tôi</h3>
+                        <p>Với chất lượng sản phẩm và phục vụ tuyệt vời, sau gần 1 năm hoạt động, đã có rất nhiều khách hàng lựa chọn để chúng tôi đem đến sự phục vụ tận tình, chuyên nghiệp.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="col-xl-2 col-md-6 col-lg-3">
+                        <div class="single_brand">
+                            <img src="img/brand/1.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-3">
+                        <div class="single_brand">
+                            <img src="img/brand/02.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-3">
+                        <div class="single_brand">
+                            <img src="img/brand/03.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-3">
+                        <div class="single_brand">
+                            <img src="img/brand/04.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-3">
+                        <div class="single_brand">
+                            <img src="img/brand/05.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-3">
+                        <div class="single_brand">
+                            <img src="img/brand/06.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-3">
+                        <div class="single_brand">
+                            <img src="img/brand/7.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-3">
+                        <div class="single_brand">
+                            <img src="img/brand/12.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-3">
+                        <div class="single_brand">
+                            <img src="img/brand/9.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-3">
+                        <div class="single_brand">
+                            <img src="img/brand/10.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-3">
+                        <div class="single_brand">
+                            <img src="img/brand/11.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-3">
+                        <div class="single_brand">
+                            <img src="img/brand/8.png" alt="">
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <!-- brand_area-end -->
+
+    <!-- footer-start -->
+    <footer id="footer" class="footer_area footer-bg zigzag_bg_1">
+        
+    </footer>
+    <!-- footer-end -->
+
+
+    <!-- JS here -->
+    <script src="js/axios.min.js"></script>
+    <script src="js/sweetalertto2@9.js"></script>
+    <script src="js/sweetalert2@9.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/ajax-form.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/scrollIt.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/nice-select.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/plugins.js"></script>
+
+    <!--contact js-->
+    <script src="js/contact.js"></script>
+    <script src="constant.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/mail-script.js"></script>
+    <script src="js/main.js"></script>
+    <script src="index/index.js"></script>
+</body>
+
+</html>
